@@ -1,43 +1,35 @@
-class AuthorizationService {
+class UserRequester {
     constructor(baseServiceUrl, appId, appSecret, guestUserCredentials) {
         this.baseServiceUrl = baseServiceUrl;
         this.appId = appId;
         this.appSecret = appSecret;
-        _guestCredentials = guestUserCredentials;
-        _appCredentials = btoa(appId + ":" + appSecret);
+        this._guestCredentials = guestUserCredentials;
+        this._appCredentials = btoa(appId + ":" + appSecret);
     }
 
-    initAuthorizationType(authType) {
-        this.authType = authType;
+    userLogin(user) {
+        const headers = {
+            Authorization: `Basic ${btoa(appId + ":" + appSecret)}`,
+        };
+
+        user.password = CryptoJS.SHA1(user.password).toString();
+
+        return requester.post(`${baseServiceUrl}/user/${appId}/login`, user, headers);
+
     }
 
-    getCurrentUser() {
-        return sessionStorage['username'];
+    //TODO: Logout
+
+    userRegister(user) {
+        const headers = {
+            Authorization: `Basic ${btoa(appId + ":" + appSecret)}`
+        };
+
+        user.password = CryptoJS.SHA1(user.password).toString();
+
+        return requester.post(`${baseServiceUrl}/user/${appId}`, user, headers);
     }
 
-    isLoggedIn() {
-        return this.getCurrentUser() != undefined;
-    }
-
-    getAuthorizationHeaders(isGuest) {
-        let headers = {};
-
-        if (this.isLoggedIn()) {
-            headers = {
-                'Authorization': this.authType + ' ' + sessionStorage['_authToken']
-            };
-        } else if (!this.isLoggedIn() && isGuest) {
-            headers = {
-                'Authorization': this.authType + ' ' + _guestCredentials
-            };
-        } else if (!this.isLoggedIn() && !isGuest) {
-            headers = {
-                'Authorization': 'Basic' + ' ' + _appCredentials
-            };
-        }
-
-        headers['Content-Type'] = 'application/json';
-
-        return headers;
-    }
 }
+
+export { UserRequester }
