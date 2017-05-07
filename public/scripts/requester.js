@@ -1,25 +1,36 @@
-function request(url, type, body, headers) {
-  const promise = new Promise((resolve, reject) => $.ajax({
-    url,
-    type,
-    contentType: 'application/json',
-    headers,
-    data: body,
-    success: resolve,
-    error: reject
-  }));
+function request(url, method, contentType = '', body = {}, headers = {}) {
+    const promise = new Promise((resolve, reject) => {
+        $.ajax({
+            url: url,
+            type: method,
+            data: JSON.stringify(body),
+            contentType: contentType,
+            headers: headers,
+            success: (data) => resolve(data),
+            error: (err) => reject(err)
+        });
+    });
 
-  return promise;
+    return promise;
 }
 
-export function get(url, headers = {}) {
-  return request(url, 'GET', '', headers);
+function get(url) {
+    return request(url, 'GET');
 }
 
-export function post(url, body, headers = {}) {
-  return request(url, 'POST', JSON.stringify(body), headers);
+function put(url, body, headers = {}) {
+    return request(url, 'PUT', 'application/json', body, headers);
 }
 
-export function put(url, body, headers = {}) {
-  return request(url, 'PUT', JSON.stringify(body), headers);
+function post(url, body, headers = {}) {
+    return request(url, 'POST', 'application/json', body, headers);
 }
+
+
+const requester = {
+    post,
+    put,
+    get,
+};
+
+export { requester };

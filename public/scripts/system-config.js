@@ -12,10 +12,9 @@ SystemJS.config({
         'app': 'scripts/app.js',
         'myRouter': 'scripts/models/router.js',
         'requester': 'scripts/requester.js',
-        'data': 'scripts/userRequester.js',
+        'userRequester': 'scripts/userRequester.js',
         'multipleController': 'scripts/controllers/multiple.js',
-        'myCookieController': 'scripts/controllers/myCookie.js',
-        'userController': 'scripts/controllers/user.js',
+        'userController': 'scripts/controllers/userController.js',
         'templates': 'scripts/templates.js',
 
         //Library files
