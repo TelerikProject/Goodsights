@@ -1,17 +1,16 @@
 {
   "name": "goodsights",
   "version": "1.0.0",
-  "description": "## App description",
-  "main": "server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VampireChicks/Goodsights.git"
   },
-  "author": "Gizdava Geneva",
+  "author": "Gizdava Geneva, Mihaela Ivanova",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/VampireChicks/Goodsights/issues"
@@ -22,12 +21,13 @@
     "cryptojs": "^2.5.3",
     "data": "^0.6.1",
     "express": "^4.15.2",
-    "freelancer": "file://bootstrap",
-    "handlebars": "^4.0.7",
+    "freelancer": "^0.1.7",
+    "handlebars": "^4.0.8",
     "jquery": "^3.2.1",
     "lowdb": "^0.16.2",
     "systemjs": "^0.20.12",
     "systemjs-plugin-babel": "0.0.21",
+    "toastr": "^2.1.2",
     "underscore-db": "^0.12.2"
   }
 }
