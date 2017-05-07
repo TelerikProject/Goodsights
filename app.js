@@ -13,5 +13,6 @@ app.use('/libs',express.static(__dirname + '/node_modules'));
 var port = 80;
 
 app.listen(port, function(){
+    require("openurl").open(`http://localhost:${port}/index.html`);
     console.log('Server is running at port ' + port);
 })
