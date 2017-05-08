@@ -6,7 +6,7 @@ import { userRequester } from 'userRequester';
 
 class UserController {
 
-    login(context) {
+    login() {
         loadTemplate('login')
             .then((template) => {
                 $('#app-container').html(template());
@@ -23,7 +23,13 @@ class UserController {
                     userRequester.userLogin(user)
                         .then((data) => {
                             toastr.success(`Hi ${username}, you logged successfully!`);
-                            //context.redirect('#/home'); TODO redirect kum home
+                            loadTemplate('home')
+                                .then((template) => {
+                                    $('#app-container').html(template());
+                                }),
+                                $('#login').addClass("hidden"),
+                                $('#register').addClass("hidden"),
+                                $('#logout').removeClass("hidden");
                         })
                         .catch(() => {
                             toastr.error('Invalid username or password!');
@@ -32,6 +38,7 @@ class UserController {
             })
 
     }
+
 
     register() {
         loadTemplate('register')
@@ -58,6 +65,19 @@ class UserController {
                         .then(() => {
                             return userRequester.userRegister(user);
                         })
+                         .then(() => {
+                            toastr.success(`Hi ${username}, your registration is successfull!`);
+                            loadTemplate('home')
+                                .then((template) => {
+                                    $('#app-container').html(template());
+                                }),
+                                 $('#login').addClass("hidden"),
+                                $('#register').addClass("hidden"),
+                                $('#logout').removeClass("hidden");
+                        })
+                        .catch((errorMsg) => {
+                            toastr.error(errorMsg);
+                        });
 
                 })
 
