@@ -3,3 +3,27 @@
 }
 
 html,body{overflow-y: scroll; }
+
+#logo{
+    margin-top:-15px;
+    margin-left:20px;
+    z-index: 2;
+}
+
+#app-container{
+    margin-top:20px;
+}
+
+.footer-right{
+    float: right;
+}
+
+.btn-social{
+    height: 35px;
+    width: 35px;
+}
+
+body, html { 
+    overflow-x: hidden; 
+    overflow-y: auto;
+}
