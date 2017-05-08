@@ -1,0 +1,61 @@
+ label {
+	text-transform: uppercase;
+	color:white;
+	font-weight: 700;
+	letter-spacing: 1px;
+	font-size: 1.1em;
+	line-height: 2.0em;
+}
+
+input{
+    margin-bottom:40px;
+    width:40%;
+}
+
+@media(max-width: 720px){
+input {
+    width: 80%;
+}
+}
+
+.btn-default{
+    width:15%;
+    margin-bottom:20px;
+}
+
+@media(max-width: 720px){
+.btn-default {
+    width: 80%;
+}
+}
+
+.btn-default:hover {
+	opacity: 0.7;
+	transition: 0.5s;
+    background: #18BC9C;
+}
+
+#sign-in{
+    margin-top:100px;
+    padding-left:50px;
+}
+
+#sign-in p{
+    color: #18BC9C;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-bottom:50px;
+}
+
+#sign-in h1{
+    color: #18BC9C;
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+#remember{
+    width:20px;
+    margin-right:5px;
+    display: block;
+    float:left;
+}
