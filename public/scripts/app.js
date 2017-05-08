@@ -11,11 +11,11 @@ const router = new MyRouter();
 
 
 router
-  .on('', () => location.hash = '#/home') // fix later
+  .on('', () => location.hash = '#/home',multipleController.get) // fix later
   .on('/', () => location.hash = '#/home')
   .on('/home', multipleController.get)
   .on('/contact', multipleController.get)
-  .on('/sights', multipleController.get)
+  .on('/sights', userController.sights)
   .on('/sightsAll', multipleController.get)
   .on('/about', multipleController.get)
   .on('/team', multipleController.get)

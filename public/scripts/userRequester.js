@@ -31,23 +31,16 @@ class UserRequester {
 
         return requester.post(`${this.baseServiceUrl}/user/${this.appId}`, user, headers);
     }
-    /*getSights() {
-        let authBase64 = btoa(this.appId + ":" + this.appSecret);
-        let loginURL = this.baseServiceUrl + 'appdata/' + this.appId + '/online';
+     getSights() {
 
-        var sights = new Promise(function (resolve, reject) {
-            $.ajax({
-                url: loginURL,
-                method: "GET",
-                headers: { "Authorization": "Basic " + authBase64 },
-                success: function (data) {
-                    resolve(data);
-                }
-            });
-        });
-        console.log(sights);
-        return sights;
-    }*/
+
+        const headers = {
+            Authorization: `Basic ${btoa(this.appId + ":" + this.appSecret)}`
+        };
+
+        return requester.get(`${this.baseServiceUrl}/appdata/${this.appId}/sights`, headers)
+            .then(data => console.log(data));
+    }
 }
 const userRequester = new UserRequester();
 

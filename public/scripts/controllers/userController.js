@@ -108,6 +108,19 @@ class UserController {
             toastr.success('You successfully logout!');
         })
     }
+    sights(){
+        loadTemplate('sights')
+            .then((template) => {
+                $('#app-container').html(template());
+                    userRequester.getSights()
+                        .then((data) => console.log(data))
+                        .catch(() => {
+                            toastr.error('PROBLEM!');
+                        });
+                })
+            
+
+    }
 }
 
 $(window).ready(function () {
