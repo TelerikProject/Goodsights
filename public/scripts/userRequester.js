@@ -31,9 +31,25 @@ class UserRequester {
 
         return requester.post(`${this.baseServiceUrl}/user/${this.appId}`, user, headers);
     }
+    getSights() {
+        let authBase64 = btoa(this.appId + ":" + this.appSecret);
+        let loginURL = this.baseServiceUrl + 'appdata/' + this.appId + '/online';
 
+        var sights = new Promise(function (resolve, reject) {
+            $.ajax({
+                url: loginURL,
+                method: "GET",
+                headers: { "Authorization": "Basic " + authBase64 },
+                success: function (data) {
+                    resolve(data);
+                }
+            });
+        });
+        console.log(sights);
+        return sights;
+    }
 }
-
 const userRequester = new UserRequester();
+
 
 export { userRequester }

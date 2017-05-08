@@ -80,11 +80,34 @@ class UserController {
                         });
 
                 })
-
-
-
             })
     }
+    sights(){
+        loadTemplate('sights')
+            .then((template) => {
+                $('#app-container').html(template());
+
+             
+
+                    userRequester.getSights(user)
+                        .then((data) => {
+                            toastr.success(`Hi ${username}, you logged successfully!`);
+                            loadTemplate('home')
+                                .then((template) => {
+                                    $('#app-container').html(template());
+                                }),
+                                $('#login').addClass("hidden"),
+                                $('#register').addClass("hidden"),
+                                $('#logout').removeClass("hidden");
+                        })
+                        .catch(() => {
+                            toastr.error('Please register or log-in to see the content!');
+                        });
+                })
+            
+
+    }
+    
 }
 
 const userController = new UserController();
