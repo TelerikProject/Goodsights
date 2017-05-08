@@ -33,7 +33,6 @@ class UserRequester {
     }
      getSights() {
 
-
         const headers = {
             Authorization: `Basic ${btoa(this.appId + ":" + this.appSecret)}`
         };
