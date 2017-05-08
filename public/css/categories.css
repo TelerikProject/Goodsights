@@ -1,0 +1,21 @@
+#app-container{
+    margin-top:100px;
+}
+
+.portfolio-link>p{
+    font-size:1.3em;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.portfolio-item{
+    margin-top:40px;
+}
+
+.img-responsive{
+    border-radius: 50px;
+    max-width: 75%;
+
+}
+
