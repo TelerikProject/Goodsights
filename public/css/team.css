@@ -1,0 +1,32 @@
+ #the-team h3 {
+	text-transform: uppercase;
+	color:#18BC9C;
+	font-weight: 700;
+	letter-spacing: 1px;
+	font-size: 1.5em;
+}
+
+#the-team{
+    margin-top:150px;
+    padding-left:50px;
+}
+
+#the-team p{
+    color: white;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom:50px;
+}
+
+.user-pic{
+    font-weight: 300;
+	letter-spacing: 1px;
+    color:#18BC9C;
+    font-size: 1.5em;
+    display: inline-block;
+    margin-bottom:10px;
+}
+
+#user-info{
+    margin-bottom:20px;
+}

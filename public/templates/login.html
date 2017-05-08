@@ -1,21 +1,29 @@
-<div id="sing-in">
+ <link rel="stylesheet" href="../css/login.css">
+<div id="sign-in">
     <div>
         <h1>Добре дошли в Goodsights!</h1>
         <p>Тук откриваме нови дестинации за покоряваме и споделяме приключенския си опит.</p>
     </div>
     <div>
         <div>
-            <h2>Влезте, за да видиш всички преложения за теб!</h2>
-
             <label for="username-input"> Потребителско име </label>
+            <br/>
             <input placeholder="Потребителско име" type="text" id="username-input">
+            <br/>            
             <label for="password-input"> Парола </label>
+            <br/>
             <input placeholder="Парола" type="password" id="password-input">
-            <label for="remember"> Запомни ме</label>
+            <br/>
+            <div id="storage">
             <input type="checkbox" id="remember">
+            <label for="remember"> Запомни ме</label>
+            </div>
             <p class="error hidden"></p>
-            <button id="btn-login">Вход</button>
+            <br/>
+            <button class="btn-default">Вход</button>
+            <br/>
             <a href="#/error404"> Забравена парола?</a>
+            <br/>
             <a href="#/register">Все още нямате регистрация?</a>
         </div>
     </div>
