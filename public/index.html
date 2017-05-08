@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Goodsights</title>
 
-  <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/font-awesome.css" />
   <link rel="stylesheet" href="libs/toastr/build/toastr.min.css" />
   <link href="../libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
   <link href="css/freelancer.css" rel="stylesheet">
   <link href="./" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -33,76 +33,68 @@
                 </button>
         <a id="logo" class="navbar-brand" href="#/home"><img src="./images/logo-2.png" alt="Goodsights"></a>
       </div>
+
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <header>
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a id="home-btn" href="#/home">Начало</a>
-            </li>
-            <li>
-              <a id="about-btn" href="#/sightsAll">Обекти</a>
-            </li>
-            <li>
-              <a id="contact-btn" href="#/contact">Контакти</a>
-            </li>
-            <li>
-              <a id="login" href="#/login">Вход</a>
-            </li>
-            <li>
-              <a id="logout" class="hidden" href="#/logout">Изход</a>
-            </li>
-            <li>
-              <a id="register" href="#/register">Регистрация</a>
-            </li>
-          </ul>
-        </header>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="page-scroll">
+            <a id="home-btn" href="#/home">Начало</a>
+          </li>
+          <li class="page-scroll">
+            <a id="about-btn" href="#/sightsAll">Обекти</a>
+          </li>
+          <li class="page-scroll">
+            <a id="login" href="#/login">Вход</a>
+          </li>
+          <li class="page-scroll">
+            <a id="logout" class="hidden" href="#/logout">Изход</a>
+          </li>
+          <li class="page-scroll">
+            <a id="register" href="#/register">Регистрация</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="app-container" class="container" tabindex="-1"></main>
+
+  <!-- Footer FIX IT WITH CSS FROM freelancer!!! -->
+  <footer class="footer-distributed">   
+      <div class="footer-right">
+        <ul class="list-inline">
+          <li>
+            <a href="https://www.facebook.com" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
+          </li>
+          <li>
+            <a href="https://plus.google.com" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
+          </li>
+          <li>
+            <a href="https://twitter.com" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="https://linkedin.com" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
+          </li>
+        </ul>
       </div>
 
-      <main id="app-container" class="container" tabindex="-1"></main>
+      <div class="footer-left">
+        <p class="footer-links"> 
+          <a href="#/about">За нас</a> ·
+          <a href="#/team">Екипът</a> .
+          <a href="#/contact">Контакти</a>
+        </p>
+        <p>Goodsights &copy; 2017</p>
+      </div>
+    
+  </footer>
 
-      <!-- Footer FIX IT WITH CSS FROM freelancer!!! -->
-      <footer class="footer-distributed">
-
-        <div class="footer-col col-md-4">
-          <div class="footer-right">
-            <ul class="list-inline">
-              <li>
-                <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
-              </li>
-              <li>
-                <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
-              </li>
-              <li>
-                <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
-              </li>
-              <li>
-                <a href="#" class="btn-social btn-outline"><span class="sr-only">Dribble</span><i class="fa fa-fw fa-dribbble"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-left">
-          <p class="footer-links"> .
-            <a href="#/about">За нас</a> ·
-            <a href="#/team">Екипът</a> .
-            <a href="#/contact">Контакти</a>
-          </p>
-          <p>Goodsights &copy; 2017</p>
-        </div>
-
-      </footer>
-
-      <script src="libs/systemjs/dist/system.js"></script>
-      <script src="libs/handlebars/dist/handlebars.js"></script>
-      <!-- FIX ME -->
-      <script src="libs/toastr/build/toastr.min.js"></script>
-      <!--FIX ME -->
-      <script src="libs/crypto-js/crypto-js.js"></script>
-      <script src="scripts/system-config.js"></script>
+  <script src="libs/systemjs/dist/system.js"></script>
+  <script src="libs/handlebars/dist/handlebars.js"></script>
+  <!-- FIX ME -->
+  <script src="libs/toastr/build/toastr.min.js"></script>
+  <!--FIX ME -->
+  <script src="libs/crypto-js/crypto-js.js"></script>
+  <script src="scripts/system-config.js"></script>
 
 
 </body>

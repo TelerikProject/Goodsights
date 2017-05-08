@@ -16,6 +16,12 @@ html,body{overflow-y: scroll; }
 
 .footer-right{
     float: right;
+    margin-right:100px;
+}
+
+.footer-left{
+    float:left;
+    margin-left:100px;
 }
 
 .btn-social{
@@ -23,7 +29,24 @@ html,body{overflow-y: scroll; }
     width: 35px;
 }
 
-body, html { 
-    overflow-x: hidden; 
-    overflow-y: auto;
+body{ 
+    background-color: #2C3E50;
 }
+
+@media (max-width: 600px){
+.footer-distributed .footer-right {
+    float: none;
+    margin: 0 auto 20px;
+    }
+}
+
+@media (max-width: 600px){
+.footer-distributed .footer-left, .footer-distributed .footer-right {
+    text-align: center;
+    }
+}
+
+footer{
+    margin-top:20px;
+}
+
