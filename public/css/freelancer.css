@@ -82,7 +82,7 @@ header {
 }
 
 header .container {
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 header img {
@@ -93,20 +93,21 @@ header .intro-text .name {
   display: block;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 2em;
 }
 header .intro-text .skills {
-  font-size: 1.25em;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 250;
 }
 @media (min-width: 768px) {
   header .container {
-    padding-top: 200px;
-    padding-bottom: 100px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
   header .intro-text .name {
-    font-size: 4.75em;
+    font-size: 4em;
+    padding-bottom:10px;
   }
   header .intro-text .skills {
     font-size: 1.75em;
