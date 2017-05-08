@@ -109,6 +109,7 @@ class UserController {
             toastr.success('You successfully logout!');
         })
     }
+
     sights() {
         loadTemplate('sights')
             .then((template) => {
