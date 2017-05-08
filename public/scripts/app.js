@@ -16,6 +16,7 @@ router
   .on('/home', multipleController.get)
   .on('/contact', multipleController.get)
   .on('/sights', multipleController.get)
+  .on('/sightsAll', multipleController.get)
   .on('/about', multipleController.get)
   .on('/team', multipleController.get)
   .on('/login', userController.login)
