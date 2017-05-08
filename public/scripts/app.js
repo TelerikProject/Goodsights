@@ -7,6 +7,7 @@ import { userRequester } from 'userRequester';
 
 const router = new MyRouter();
 
+
 router
   .on('', () => location.hash = '#/home') // fix later
   .on('/', () => location.hash = '#/home')
