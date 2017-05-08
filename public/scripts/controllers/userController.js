@@ -100,6 +100,7 @@ class UserController {
             localStorage.removeItem("password");
             sessionStorage.removeItem("username");
             sessionStorage.removeItem("password");
+            localStorage.removeItem(AUTH_TOKEN_STORAGE);
 
             $('#login').removeClass("hidden");
             $('#register').removeClass("hidden");
