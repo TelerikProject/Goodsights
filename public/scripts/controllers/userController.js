@@ -1,12 +1,13 @@
 import "jquery";
-import toastr from 'toastr';
-import { load as loadTemplate } from 'templates';
-import { validator } from 'validator';
-import { userRequester } from 'userRequester';
+import  toastr from 'toastr';
+import {load as loadTemplate} from 'templates';
+import {validator} from 'validator';
+import {userRequester} from 'userRequester';
 
 class UserController {
 
     login() {
+
         loadTemplate('login')
             .then((template) => {
                 $('#app-container').html(template());
@@ -26,20 +27,26 @@ class UserController {
                             loadTemplate('home')
                                 .then((template) => {
                                     $('#app-container').html(template());
-                                }),
-                                $('#login').addClass("hidden"),
-                                $('#register').addClass("hidden"),
-                                $('#logout').removeClass("hidden");
+                                });
+                            if ($("#remember").is(':checked')) {
+                                localStorage.setItem("username", username);
+                                localStorage.setItem("password", password);
+                            }
+                            else {
+                                sessionStorage.setItem("username", username);
+                                sessionStorage.setItem("password", password);
+                            }
+                            $('#login').addClass("hidden");
+                            $('#register').addClass("hidden");
+                            $('#logout').removeClass("hidden");
                         })
                         .catch(() => {
                             toastr.error('Invalid username or password!');
                         });
                 })
-            })
 
+            });
     }
-
-
     register() {
         loadTemplate('register')
             .then((template) => {
@@ -65,23 +72,86 @@ class UserController {
                         .then(() => {
                             return userRequester.userRegister(user);
                         })
-                         .then(() => {
-                            toastr.success(`Hi ${username}, your registration is successfull!`);
+                        .then(() => {
+                            toastr.success(`Hi ${username}, your registration is successful!`);
                             loadTemplate('home')
                                 .then((template) => {
                                     $('#app-container').html(template());
-                                }),
-                                 $('#login').addClass("hidden"),
-                                $('#register').addClass("hidden"),
-                                $('#logout').removeClass("hidden");
+                                });
+                            sessionStorage.setItem("username", username);
+                            sessionStorage.setItem("password", password);
+
+                            $('#login').addClass("hidden");
+                            $('#register').addClass("hidden");
+                            $('#logout').removeClass("hidden");
                         })
                         .catch((errorMsg) => {
                             toastr.error(errorMsg);
                         });
 
-                })
+                });
+
             })
     }
+
+    logout(){
+        $("#logout").on("click", function () {
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+            sessionStorage.removeItem("username");
+            sessionStorage.removeItem("password");
+
+            $('#login').removeClass("hidden");
+            $('#register').removeClass("hidden");
+            $('#logout').addClass("hidden");
+
+            toastr.success('You successfully logout!');
+        })
+    }
+}
+
+$(window).ready(function () {
+    let username = localStorage.getItem("username");
+    let password = localStorage.getItem("password");
+    let user = {
+        username,
+        password,
+    };
+
+    if (username && password) {
+        userRequester.userLogin(user)
+            .then((data) => {
+                toastr.success(`Hi ${username}, you logged successfully!`);
+                loadTemplate('home')
+                    .then((template) => {
+                        $('#app-container').html(template());
+                    });
+                if ($("#remember").is(':checked')) {
+                    localStorage.setItem("username", username);
+                    localStorage.setItem("password", password);
+                }
+                else {
+                    sessionStorage.setItem("username", username);
+                    sessionStorage.setItem("password", password);
+                }
+                $('#login').addClass("hidden");
+                $('#register').addClass("hidden");
+                $('#logout').removeClass("hidden");
+            })
+            .catch(() => {
+                toastr.error('Invalid username or password!');
+            });
+    } else {
+        console.log("Nothing is localstored!");
+    }
+
+});
+
+const userController = new UserController();
+
+export {userController};
+
+    /*
     sights(){
         loadTemplate('sights')
             .then((template) => {
@@ -108,8 +178,5 @@ class UserController {
 
     }
     
-}
+    */
 
-const userController = new UserController();
-
-export { userController };

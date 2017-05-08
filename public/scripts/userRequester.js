@@ -31,7 +31,7 @@ class UserRequester {
 
         return requester.post(`${this.baseServiceUrl}/user/${this.appId}`, user, headers);
     }
-    getSights() {
+    /*getSights() {
         let authBase64 = btoa(this.appId + ":" + this.appSecret);
         let loginURL = this.baseServiceUrl + 'appdata/' + this.appId + '/online';
 
@@ -47,7 +47,7 @@ class UserRequester {
         });
         console.log(sights);
         return sights;
-    }
+    }*/
 }
 const userRequester = new UserRequester();
 

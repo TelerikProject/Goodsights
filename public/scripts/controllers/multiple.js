@@ -1,4 +1,3 @@
-import * as data from 'userRequester';
 import { load as loadTemplate } from 'templates';
 
 /*
