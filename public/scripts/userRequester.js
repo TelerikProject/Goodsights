@@ -1,20 +1,22 @@
+import { requester } from 'requester';
+
 class UserRequester {
-    constructor(baseServiceUrl, appId, appSecret, guestUserCredentials) {
-        this.baseServiceUrl = baseServiceUrl;
-        this.appId = appId;
-        this.appSecret = appSecret;
-        this._guestCredentials = guestUserCredentials;
-        this._appCredentials = btoa(appId + ":" + appSecret);
+    constructor() {
+        this.baseServiceUrl = "https://baas.kinvey.com";
+        this.appId = "kid_By7HTRjkb";
+        this.appSecret = "26301ce0be5e4d5d9c3011f55abe3c70";
+        this._guestCredentials = "e512b4db-c694-4857-9fbf-3f769bfaea47.3AEKPjzf8qigMP7iu04DQwOBsmvalZSqp9agZqmEMDU=";
+        this._appCredentials = btoa(this.appId + ":" + this.appSecret);
     }
 
     userLogin(user) {
         const headers = {
-            Authorization: `Basic ${btoa(appId + ":" + appSecret)}`,
+            Authorization: `Basic ${btoa(this.appId + ":" + this.appSecret)}`,
         };
 
         user.password = CryptoJS.SHA1(user.password).toString();
 
-        return requester.post(`${baseServiceUrl}/user/${appId}/login`, user, headers);
+        return requester.post(`${this.baseServiceUrl}/user/${this.appId}/login`, user, headers);
 
     }
 
@@ -22,14 +24,16 @@ class UserRequester {
 
     userRegister(user) {
         const headers = {
-            Authorization: `Basic ${btoa(appId + ":" + appSecret)}`
+            Authorization: `Basic ${btoa(this.appId + ":" + this.appSecret)}`
         };
 
         user.password = CryptoJS.SHA1(user.password).toString();
 
-        return requester.post(`${baseServiceUrl}/user/${appId}`, user, headers);
+        return requester.post(`${this.baseServiceUrl}/user/${this.appId}`, user, headers);
     }
 
 }
 
-export { UserRequester }
+const userRequester = new UserRequester();
+
+export { userRequester }
