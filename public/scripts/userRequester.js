@@ -1,6 +1,5 @@
 import { requester } from 'requester';
 
-const AUTH_TOKEN_STORAGE = 'auth-token';
 class UserRequester {
     constructor() {
         this.baseServiceUrl = "https://baas.kinvey.com";
@@ -20,7 +19,7 @@ class UserRequester {
 
         return requester.post(`${this.baseServiceUrl}/user/${this.appId}/login`, user, headers)
         .then((data) => {
-                localStorage.setItem(AUTH_TOKEN_STORAGE, data._kmd.authtoken);
+                localStorage.setItem(this._AUTH_TOKEN_STORAGE, data._kmd.authtoken);
             });
         
 
@@ -37,17 +36,15 @@ class UserRequester {
 
         return requester.post(`${this.baseServiceUrl}/user/${this.appId}`, user, headers)
             .then((data) => {
-                localStorage.setItem(AUTH_TOKEN_STORAGE, data._kmd.authtoken);
+                localStorage.setItem(this._AUTH_TOKEN_STORAGE, data._kmd.authtoken);
             });
     }
      getSights() {
-
         const headers = {
-            Authorization: `Kinvey ${localStorage.getItem(AUTH_TOKEN_STORAGE)}`
+            Authorization: `Kinvey ${localStorage.getItem('auth-token')}`
         };
-
-        return requester.get(`${this.baseServiceUrl}/appdata/${this.appSecret}/sights`, headers)
-            .then(data => console.log(data));
+        return requester.getJSON(`${this.baseServiceUrl}/appdata/${this.appId}/sights`, headers)
+            //.then(data => console.log(data));
     }
 }
 const userRequester = new UserRequester();

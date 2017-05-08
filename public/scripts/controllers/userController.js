@@ -100,7 +100,7 @@ class UserController {
             localStorage.removeItem("password");
             sessionStorage.removeItem("username");
             sessionStorage.removeItem("password");
-            localStorage.removeItem(AUTH_TOKEN_STORAGE);
+            localStorage.removeItem("auth-token");
 
             $('#login').removeClass("hidden");
             $('#register').removeClass("hidden");
@@ -113,6 +113,7 @@ class UserController {
         loadTemplate('sights')
             .then((template) => {
                 $('#app-container').html(template());
+                
                     userRequester.getSights()
                         .then((data) => console.log(data))
                         .catch(() => {
@@ -171,7 +172,7 @@ export {userController};
             .then((template) => {
                 $('#app-container').html(template());
 
-             
+
 
                     userRequester.getSights(user)
                         .then((data) => {
@@ -188,9 +189,8 @@ export {userController};
                             toastr.error('Please register or log-in to see the content!');
                         });
                 })
-            
+
 
     }
-    
-    */
 
+    */

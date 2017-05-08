@@ -26,11 +26,16 @@ function post(url, body, headers = {}) {
     return request(url, 'POST', 'application/json', body, headers);
 }
 
+function getJSON(url, headers = {}) {
+    return request(url, 'GET', 'application/json', {}, headers);
+}
+
 
 const requester = {
     post,
     put,
     get,
+    getJSON
 };
 
 export { requester };
