@@ -1,23 +1,32 @@
+   <link rel="stylesheet" href="../css/contact.css">
    <div class="contact-container">
     <div>
         <div class="box-header">
-            <h2>Свържете се с нас</h2>
+            <h2 id="title">Свържете се с нас</h2>
         </div>
         <form action="mailto:goodsights@gmail.com" method="POST" enctype="text/plain">
             <label for="email">E-мейл</label>
+            <br/>
             <input name="email" type="email" autofocus="autofocus" id="email">
+            <br/>            
             <label for="subject">Тема</label>
+            <br/>            
             <input name="subject" type="subject" id="subject">
+            <br/>
             <label for="message">Съобщение</label>
+            <br/>
             <textarea name="message" type="message" id="message"></textarea>
-            <input id="button" type="submit" value="Изпрати съобщение">
-
+            <br/>
+            <input id="button" type="submit" value="Изпрати съобщение" class="btn btn-default">
+            <br/>
             <label for="address">Адресс: 
                 </br>
                 София, ул. Дондуков 22
                 </br>
             </label>
+            <div>
             <div id="map"></div>
+            </div>
         </form>
     </div>
 </div>
