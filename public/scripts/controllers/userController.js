@@ -1,8 +1,8 @@
 import "jquery";
-import  toastr from 'toastr';
-import {load as loadTemplate} from 'templates';
-import {validator} from 'validator';
-import {userRequester} from 'userRequester';
+import toastr from 'toastr';
+import { load as loadTemplate } from 'templates';
+import { validator } from 'validator';
+import { userRequester } from 'userRequester';
 
 class UserController {
 
@@ -94,7 +94,7 @@ class UserController {
             })
     }
 
-    logout(){
+    logout() {
         $("#logout").on("click", function () {
             localStorage.removeItem("username");
             localStorage.removeItem("password");
@@ -109,18 +109,18 @@ class UserController {
             toastr.success('You successfully logout!');
         })
     }
-    sights(){
+    sights() {
         loadTemplate('sights')
             .then((template) => {
-                $('#app-container').html(template());
-                
-                    userRequester.getSights()
-                        .then((data) => console.log(data))
-                        .catch(() => {
-                            toastr.error('PROBLEM!');
-                        });
-                })
-            
+                userRequester.getSights()
+                    .then(([template, data]) => {
+                        $('#app-container').html(template(data));
+                    })
+                    .catch(() => {
+                        toastr.error('Please, log-in to see the content!');
+                    });
+            })
+
 
     }
 }
@@ -164,7 +164,7 @@ $(window).ready(function () {
 
 const userController = new UserController();
 
-export {userController};
+export { userController };
 
     /*
     sights(){

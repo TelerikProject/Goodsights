@@ -19,8 +19,9 @@ router
   .on('/sightsAll', multipleController.get)
   .on('/about', multipleController.get)
   .on('/team', multipleController.get)
+  .on('/error404', multipleController.get)  
   .on('/login', userController.login)
-  .on('/logout', userController.logout)  
+  .on('/logout', userController.logout) 
   .on('/register', userController.register);
 
 
