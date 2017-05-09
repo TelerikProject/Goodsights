@@ -110,21 +110,16 @@ class UserController {
         })
     }
 
-    sights() {
-        loadTemplate('sights')
-            .then((template) => {
-                userRequester.getSights()
-                    .then(([template, data]) => {
-                        $('#app-container').html(template(data));
-                    })
-                    .catch(() => {
-                        toastr.error('Please, log-in to see the content!');
-                    });
-            })
-
-
-    }
-}
+   // sights() {
+     //   Promise.all([
+    //        loadTemplate(`${templateName}`),
+    ///        userRequester.getSights()
+   //     ])
+   //         .then(([template, data]) => {
+    //            $appContainer.html((template(data)));
+    //        });
+ //   }
+}//
 
 $(window).ready(function () {
     let username = localStorage.getItem("username");

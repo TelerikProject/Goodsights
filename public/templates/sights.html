@@ -1,13 +1,14 @@
 <div >
-    
+    {{#if this.length}} {{#each this}}
      <div>
         <div>
-          
-            <img src="" alt="">
-            <p><a class="btn btn-success"  role="button">Виж още &raquo;</a></p>
+            <div>{{name}} </div>
+            <h6>Местоположение: {{location}}</h6>
+            <img src="{{ImgSrc}}" alt="{{name}}">
+            <p><a class="btn btn-success" href="#details/{{id}}" role="button">Виж още &raquo;</a></p>
         </div>
     </div>  
-
-        <h3 class="text-danger text-center">No data in collection!</h3>
-
+    {{/each }} {{else}}
+        <h3 class="text-danger text-center">No data in your collection!</h3>
+        {{/if}}
 </div>
