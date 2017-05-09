@@ -1,8 +1,8 @@
 import "jquery";
 import toastr from 'toastr';
-import { load as loadTemplate } from 'templates';
-import { validator } from 'validator';
-import { userRequester } from 'userRequester';
+import {load as loadTemplate} from 'templates';
+import {validator} from 'validator';
+import {userRequester} from 'userRequester';
 
 class UserController {
 
@@ -47,6 +47,7 @@ class UserController {
 
             });
     }
+
     register() {
         loadTemplate('register')
             .then((template) => {
@@ -110,16 +111,25 @@ class UserController {
         })
     }
 
-   // sights() {
-     //   Promise.all([
-    //        loadTemplate(`${templateName}`),
-    ///        userRequester.getSights()
-   //     ])
-   //         .then(([template, data]) => {
-    //            $appContainer.html((template(data)));
-    //        });
- //   }
-}//
+    sights() {
+        Promise
+            .all([
+                loadTemplate('sights'),
+                userRequester.getSights()
+            ])
+            .then(([template, data]) => {
+                console.log(template);
+                console.log(data);
+                $('#app-container').html(template(data));
+            })
+            .catch(() => {
+                toastr.error('Please, log-in to see the content!');
+            });
+
+
+
+    }
+}
 
 $(window).ready(function () {
     let username = localStorage.getItem("username");
@@ -160,33 +170,4 @@ $(window).ready(function () {
 
 const userController = new UserController();
 
-export { userController };
-
-    /*
-    sights(){
-        loadTemplate('sights')
-            .then((template) => {
-                $('#app-container').html(template());
-
-
-
-                    userRequester.getSights(user)
-                        .then((data) => {
-                            toastr.success(`Hi ${username}, you logged successfully!`);
-                            loadTemplate('home')
-                                .then((template) => {
-                                    $('#app-container').html(template());
-                                }),
-                                $('#login').addClass("hidden"),
-                                $('#register').addClass("hidden"),
-                                $('#logout').removeClass("hidden");
-                        })
-                        .catch(() => {
-                            toastr.error('Please register or log-in to see the content!');
-                        });
-                })
-
-
-    }
-
-    */
+export {userController};
