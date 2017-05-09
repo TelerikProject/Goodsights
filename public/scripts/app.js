@@ -15,7 +15,7 @@ router
   .on('/', () => location.hash = '#/home')
   .on('/home', multipleController.get)
   .on('/contact', multipleController.get)
-  .on('/sights', userController.sights)
+  .on('/sights',  multipleController.get)
   .on('/sightsAll', multipleController.get)
   .on('/about', multipleController.get)
   .on('/team', multipleController.get)
