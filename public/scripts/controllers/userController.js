@@ -1,8 +1,8 @@
 import "jquery";
 import toastr from 'toastr';
-import {load as loadTemplate} from 'templates';
-import {validator} from 'validator';
-import {userRequester} from 'userRequester';
+import { load as loadTemplate } from 'templates';
+import { validator } from 'validator';
+import { userRequester } from 'userRequester';
 
 class UserController {
 
@@ -107,6 +107,11 @@ class UserController {
             $('#register').removeClass("hidden");
             $('#logout').addClass("hidden");
 
+            loadTemplate('home')
+                .then((template) => {
+                    $('#app-container').html(template());
+                });
+
             toastr.success('You successfully logout!');
         })
     }
@@ -125,9 +130,66 @@ class UserController {
             .catch(() => {
                 toastr.error('Please, log-in to see the content!');
             });
-
-
-
+    }
+    waterfalls() {
+        Promise
+            .all([
+                loadTemplate('sights'),
+                userRequester.getWaterfalls()
+            ])
+            .then(([template, data]) => {
+                console.log(template);
+                console.log(data);
+                $('#app-container').html(template(data));
+            })
+            .catch(() => {
+                toastr.error('Please, log-in to see the content!');
+            });
+    }
+    caves() {
+        Promise
+            .all([
+                loadTemplate('sights'),
+                userRequester.getCaves()
+            ])
+            .then(([template, data]) => {
+                console.log(template);
+                console.log(data);
+                $('#app-container').html(template(data));
+            })
+            .catch(() => {
+                toastr.error('Please, log-in to see the content!');
+            });
+    }
+    beaches() {
+        Promise
+            .all([
+                loadTemplate('sights'),
+                userRequester.getBeaches()
+            ])
+            .then(([template, data]) => {
+                console.log(template);
+                console.log(data);
+                $('#app-container').html(template(data));
+            })
+            .catch(() => {
+                toastr.error('Please, log-in to see the content!');
+            });
+    }
+    mountains() {
+        Promise
+            .all([
+                loadTemplate('sights'),
+                userRequester.getMountains()
+            ])
+            .then(([template, data]) => {
+                console.log(template);
+                console.log(data);
+                $('#app-container').html(template(data));
+            })
+            .catch(() => {
+                toastr.error('Please, log-in to see the content!');
+            });
     }
 }
 
@@ -170,4 +232,4 @@ $(window).ready(function () {
 
 const userController = new UserController();
 
-export {userController};
+export { userController };

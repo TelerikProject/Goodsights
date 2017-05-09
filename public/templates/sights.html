@@ -1,14 +1,27 @@
+<link rel="stylesheet" href="../css/sights.css">
+
 <div >
-    {{#if this.length}} {{#each this}}
-     <div>
+    {{#each this}}
+    <div>
         <div>
-            <div>{{name}} </div>
-            <h6>Местоположение: {{location}}</h6>
-            <img src="{{ImgSrc}}" alt="{{name}}">
-            <p><a class="btn btn-success" href="#details/{{id}}" role="button">Виж още &raquo;</a></p>
+            
+            <h6>{{name}} </h6>
+            <br/>
+            <img src="../{{imgSrc}}" alt="{{name}}"></img>
+            <br/>
+            <p>Страна: {{country}}</p>
+            <br/>
+            <p>Местоположение: {{location}}</p>
+            <br/>
+            <p>Категория: {{cathegory}}</p>
+            <br/>
+            <p>Описание: {{description}}</p>
+            <br/>
+            <p><a class="btn btn-success" href="#error404" role="button">Виж още &raquo;</a></p>
+            <br/>
+            <br/>
+            <br/>
         </div>
-    </div>  
-    {{/each }} {{else}}
-        <h3 class="text-danger text-center">No data in your collection!</h3>
-        {{/if}}
+    </div>
+    {{/each }}
 </div>

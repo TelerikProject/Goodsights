@@ -43,7 +43,35 @@ class UserRequester {
         const headers = {
             Authorization: `Kinvey ${localStorage.getItem('auth-token')}`
         };
-        return requester.getJSON(`${this.baseServiceUrl}/appdata/${this.appId}/sights`, headers)
+        return requester.getJSON(`${this.baseServiceUrl}/appdata/${this.appId}/sights`, headers);
+            //.then(data => console.log(data));
+    }
+    getBeaches() {
+        const headers = {
+            Authorization: `Kinvey ${localStorage.getItem('auth-token')}`
+        };
+        return requester.getJSON(`${this.baseServiceUrl}/appdata/${this.appId}/beaches`, headers);
+            //.then(data => console.log(data));
+    }
+    getWaterfalls() {
+        const headers = {
+            Authorization: `Kinvey ${localStorage.getItem('auth-token')}`
+        };
+        return requester.getJSON(`${this.baseServiceUrl}/appdata/${this.appId}/waterfalls`, headers);
+            //.then(data => console.log(data));
+    }
+    getCaves() {
+        const headers = {
+            Authorization: `Kinvey ${localStorage.getItem('auth-token')}`
+        };
+        return requester.getJSON(`${this.baseServiceUrl}/appdata/${this.appId}/caves`, headers);
+            //.then(data => console.log(data));
+    }
+    getMountains() {
+        const headers = {
+            Authorization: `Kinvey ${localStorage.getItem('auth-token')}`
+        };
+        return requester.getJSON(`${this.baseServiceUrl}/appdata/${this.appId}/mountains`, headers);
             //.then(data => console.log(data));
     }
 }
